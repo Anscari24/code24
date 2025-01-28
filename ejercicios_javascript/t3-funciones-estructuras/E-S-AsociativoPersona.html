@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Entrada salida datos Array Asociativo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+        integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <style type="text/css">
+        .container {
+            padding: 3rem;
+        }
+
+        #mostra {
+            background-color: yellowgreen;
+            padding: 1rem;
+            margin: 2rem;
+            display: none;
+        }
+
+        .btn-secondary {
+            background-color: yellow;
+        }
+
+        input[type=text] {
+            border: 1px solid black;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <div class="container">
+
+
+        <form name="formu">
+
+            <div class="form-group">
+                <label for="nom">Nombre:</label>
+                <input type="text" class="form-control" id="nom" name="nom">
+            </div>
+            <div class="form-group">
+                <label for="cognom">Apellido:</label>
+                <input type="text" class="form-control" id="cognom" name="cognom">
+            </div>
+            <div class="form-group">
+                <label for="edad">Edad:</label>
+                <input type="text" class="form-control" id="edad" name="edad">
+            </div>
+            <div class="form-group">
+                <label for="dni">Dni:</label>
+                <input type="text" class="form-control" id="dni" name="dni">
+            </div>
+            <button id="muestra" type="button" class="btn btn-primary">Muestra los datos de la persona</button>
+            <a id="borrar_listado" class="btn btn-secondary" href="#">borra listado</a>
+            <a id="borrar_ultimo" class="btn btn-secondary" href="#">borra ultimo</a>
+            <h1>Entra los datos de cada usuario</h1>
+        </form>
+        <div id="mostra"></div>
+    </div>
+    <script>
+
+        let presenta = [];
+        let recogida = [];
+        let nombre;
+        let apellido;
+        let edad;
+        let dni;
+        let mostra;
+        let cont = 0;
+
+
+        function datos() {
+            /*let x=0;*/
+            if (document.getElementById("nom").value || document.getElementById("cognom").value || document.getElementById("edad").value || document.getElementById("dni").value) {
+                /*  x++;*/
+
+                nombre = document.getElementById("nom").value;
+                apellido = document.getElementById("cognom").value;
+                edad = document.getElementById("edad").value;
+                dni = document.getElementById("dni").value;
+                mostra = document.getElementById("mostra");
+
+
+                recogida = {
+                    "Nombre: ": nombre,
+                    "Apellido: ": apellido,
+                    "Edad: ": edad,
+                    "Dni: ": dni
+                };
+                crea_presenta();
+                mostra.style.display = "block";
+                mostra.innerHTML = presenta;
+                limpia();
+            }
+        }
+        function crea_presenta() {
+            presenta += "<ul>";
+            for (let b in recogida) {
+                presenta += "<li>" + b + " " + recogida[b] + "</li>";
+            }
+            presenta += "</ul>";
+
+        }
+
+        function limpia() {
+            document.getElementById("nom").value = "";
+            document.getElementById("cognom").value = "";
+            document.getElementById("edad").value = "";
+            document.getElementById("dni").value = "";
+        }
+
+        function borrar() {
+            while (mostra.hasChildNodes()) {
+                mostra.removeChild(mostra.lastChild);
+                mostra.style.display = "none";
+                presenta = [];
+            }
+            // location.reload(true);
+        }
+        function borra_ultimo() {
+            let mostra = document.getElementById("mostra");
+            if (mostra.hasChildNodes()) {
+
+                mostra.removeChild(mostra.lastChild);
+                for (let b in mostra) {
+                    b + " " + presenta[b] + "";
+                    console.log(b + " " + presenta[b] + "");
+                }
+
+            }
+
+            /*    for (let last = presenta.childNodes.length; presenta >= mostra.childNodes.length; presenta--) {
+                 presenta;
+               } */
+            if (mostra.childNodes.length == 0) {
+                mostra.style.display = "none";
+                location.reload(true);
+            }
+        }
+        muestra.addEventListener("click", datos);
+        borrar_listado.addEventListener("click", borrar);
+        borrar_ultimo.addEventListener("click", borra_ultimo);
+
+
+
+
+
+    </script>
+</body>
+
+</html>

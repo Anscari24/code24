@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+
+<title>Formulario validado en tiempo real</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<script type="text/javascript" src="valida.js"></script>
+<style type="text/css">
+
+
+html{
+font-size:16px;
+padding-top: 3%;
+padding-right: 15%;
+padding-left: 15%;
+background-color: pink;
+}
+
+
+div{
+display: flex;
+justify-content: center;
+padding: 8%;
+background-color: white;
+}
+
+#info{
+width:70%;
+height: 200px;
+background-color:#DDDCDC;
+font-size:1.5rem;
+}
+
+legend{
+font-weight:700;	
+}
+
+</style>
+
+</head>
+
+<body>	
+
+<div class="input-group-prepend">
+
+<form action="envio.php" method="post" name="contacto" onsubmit="return valida_envia();">
+<fieldset>
+
+<legend>Formulario de contacto inicial</legend>
+
+
+<label  for="usuario" >Usuario:</label><br/>
+<input type="text" autofocus name="usuario" onkeyup="pasaValor('usuario');" pattern="^[A-ZÀÁÈÉÍÒÓÚ]{1}[a-zA-ZÀ-ÿ\u00f1\u00d1\s]{2,20}$" class="form-control" /><br>
+
+<label  for="telefono" >Teléfono:</label><br/>
+<input type="text" required name="telefono" onkeyup="pasaValor('telefono');" pattern="^[9]{1}\d{8}$" class="form-control"/><br>
+ 
+
+<label  for="edad" >Fecha de nacimiento:</label><br/>
+<input type="date" required id="miedad" name="miedad" onkeyup="pasaValor('miedad');" class="form-control">
+<!-- <button type="button" onclick="edad();" class="btn btn-secondary">Guardar fecha</button> -->
+ 
+<br/>
+<label  for="correu" >Email:</label><br> 
+<input type="text" required="" name="correu" id="correu" onkeyup="pasaValor('correu');" pattern="^[a-z0-9_-]+(\.[a-z0-9-_]+)*@[a-z0-9-_]+(\.[a-z0-9-_]+)*(\.[a-z]{2,})$" class="form-control" /><br>
+
+
+<label  for="dni" >DNI:</label></br>
+<input type="text" required="" name="dni" id="dni" onkeyup="pasaValor('dni');" class="form-control"/><br>
+ 
+ 
+Acepto las condiciones del servicio 
+<input name="acepto" type="checkbox" value="acepto" onclick="pasaValor('acepto');" required/><br><br>
+
+ 
+<input name="registrate" type="submit" value="Regístrate" class="btn btn-primary" />
+ 
+ 
+<input name="Borrar" type="button" value="Borrar el formulario"  onclick="avisoReset();" class="btn btn-primary"/>
+
+
+ 
+<input name="Guardar" type="button" value="Guardar datos" onclick="guardarDatos();" class="btn btn-primary"/>
+
+ 
+<input name="Recuperar" type="button" value="Recuperar datos" onclick="obtenerDatos();" class="btn btn-primary"/><br><br>
+
+<textarea disabled id="info" ></textarea>
+ 
+</fieldset>
+</form>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

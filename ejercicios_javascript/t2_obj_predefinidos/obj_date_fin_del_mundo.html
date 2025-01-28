@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objeto Date - Calendario Mayo </title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+
+<body>
+    <header class="w3-container w3-sand w3-padding-large w3-padding-24">
+        <div id="mostra" class="w3-container"></div>
+    </header>
+    <script>
+        let d = new Date();
+        let fecha_maya = new Date(2012, 11, 21);
+        let elfin = `<p class="w3-blue">La fecha actual es: ${d}<br>`;
+        elfin += `El calendario Maya terminó el: ${fecha_maya}<br>`;
+        let tiempo_restante = d - fecha_maya;
+        elfin += `Hace ${tiempo_restante} milisegundos que se acabó el mundo</p>`;
+        elfin += `<p class="w3-blue">Dia de la semana: ${d.getDay()}, Mes: ${(d.getMonth() + 1)}, Año: ${d.getFullYear()}, Hora: ${d.getHours()}, Minutos: ${d.getMinutes()}, Segundos: ${d.getSeconds()}</p>`;
+        document.getElementById("mostra").innerHTML = elfin;
+    </script>
+
+
+</body>
+
+</html>

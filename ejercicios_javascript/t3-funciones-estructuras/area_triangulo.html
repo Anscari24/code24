@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular el área de un triángulo</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body>
+    <div class="w3-container w3-padding-32">
+
+        <label for="base">Base del triángulo</label>
+        <input class="w3-input" type="text" id="base" name="base" value="">
+
+        <label for="altura">Altura del triángulo</label>
+        <input class="w3-input " type="text" id="altura" name="altura" value="">
+        <button id="calcula" class="w3-button w3-green w3-margin">Calcular área</button>
+        <button id="borra" class="w3-button w3-red w3-margin">Borrar</button>
+
+        <div id="mostra" class="w3-container w3-padding-32">
+
+        </div>
+    </div>
+    <script>
+        let result, area;
+        const base = document.querySelector('#base');
+        const altura = document.querySelector('#altura');
+        const mostra = document.querySelector('#mostra');
+
+        const calcular = () => {
+            let b = base.value;
+            let a = altura.value;
+            a = Number(a.replace(",", "."));
+            b = Number(b.replace(",", "."));
+            if (isNaN(b) || isNaN(a) || b == "" || a == "") {
+                result = `No puedo operar, uno o los dos valores no son numéricos`;
+            } else {
+                area = (b * a) / 2;
+                result = `El área del triágulo de base ${b.toFixed(2)} y altura${a.toFixed(2)} es  ${area.toFixed(2)}`;
+                ;
+            }
+            mostra.innerHTML = result;
+        }
+
+        const borrar = () => {
+            base.value = "";
+            altura.value = "";
+            mostra.innerHTML = "";
+        }
+
+        const calcula = document.querySelector('#calcula');
+        calcula.onclick = calcular;
+
+        const borra = document.querySelector('#borra');
+        borra.onclick = borrar;
+    </script>
+</body>
+
+</html>

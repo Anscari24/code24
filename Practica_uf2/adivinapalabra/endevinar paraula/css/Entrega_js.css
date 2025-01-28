@@ -1,0 +1,90 @@
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 1.5rem;
+}
+
+body {
+    background-color: #08411E;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calaix {
+    width: 800px;
+    height: 700px;
+    border: 1px solid rgb(83, 81, 81);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    background-color: #7a777a;
+    margin: auto;
+}
+
+.btn_1 {
+    display: block;
+    width: 200px;
+    margin-left: auto;
+    background-color: #560E7C;
+    border: 2px solid #560E7C;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px;
+    margin-top: 30px;
+}
+
+h2 {
+    margin-top: 15px;
+    margin-bottom: auto;
+    border-bottom: 1px solid #08411E;
+    text-align: center;
+    height: 10%;
+    font-size: 40px;
+}
+
+h4 {
+    font-size: 20px;    
+}
+
+#missatge_error {
+    color: #330303;
+    text-align: center;
+    padding-bottom: 5px;
+    font-size: 28px;
+}
+
+#lletres {
+    width: 100%;
+    height: 20%;
+    border-bottom: 1px solid #08411E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.lletra {
+    height: 80px;
+    width: 80px;
+    background-color: #b1a9a9;
+    border: solidd #b1a9a9 5px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+}
+
+.encert{
+    border: solid green 5px;
+}
+.errada{
+
+    border: solid #330303 5px;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Añadir elementos con DOM</title>
+    <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+
+
+
+</head>
+
+<body>
+    <a id="enlace_1" href="#" onclick="muestra_oculta(1);"> Ocultar contenidos</a>
+    <br />
+    <p id="contenidos_1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed
+        mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue, commodo
+        nec, commodo ultricies, turpis. Quisque sapien nunc, posuere vitae, rutrum et, luctus
+        at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor, pede.
+        Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper
+        quis, faucibus ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper,
+        odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum dolor sit amet,
+        consectetuer adipiscing elit. Duis scelerisque.</p>
+
+    <a id="enlace_2" href="#" onclick="muestra_oculta(2);">Ocultar
+        contenidos</a><br />
+    <p id="contenidos_2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed
+        mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue, commodo
+        nec, commodo ultricies, turpis. Quisque sapien nunc, posuere vitae, rutrum et, luctus
+        at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor, pede.
+        Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper
+        quis, faucibus ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper,
+        odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum dolor sit amet,
+        consectetuer adipiscing elit. Duis scelerisque.</p>
+    <a id="enlace_3" href="#" onclick="muestra_oculta(3);">Ocultar
+        contenidos</a>
+    <br />
+    <p id="contenidos_3">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed
+        mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue, commodo
+        nec, commodo ultricies, turpis. Quisque sapien nunc, posuere vitae, rutrum et, luctus
+        at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor, pede.
+        Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper
+        quis, faucibus ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper,
+        odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum dolor sit amet,
+        consectetuer adipiscing elit. Duis scelerisque.</p>
+    <script>
+
+        function muestra_oculta(param) {
+            var elemento = document.getElementById('contenidos_' + param);
+
+            var enlace = document.getElementById('enlace_' + param);
+
+            if (elemento.style.display == "" || elemento.style.display == "block") {
+                elemento.style.display = "none";
+                enlace.innerHTML = 'Mostrar contenidos';
+            }
+            else {
+                elemento.style.display = "block";
+                enlace.innerHTML = 'Ocultar contenidos';
+            }
+        }
+        let enlace_1 = document.querySelector("#enlace_1");
+        let enlace_2 = document.querySelector("#enlace_2");
+        let enlace_3 = document.querySelector("#enlace_2");
+
+    </script>
+</body>
+
+</html>

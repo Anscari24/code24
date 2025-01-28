@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Obj_Date</title>
+  </head>
+
+  <body>
+    <dialog></dialog>
+
+    <script>
+      const zero = function (num) {
+        let s = "0" + num;
+        return s.substr(s.length - 2);
+        /* return s; */
+      };
+
+      const dialogo = document.querySelector("dialog");
+      dialogo.open = true;
+      /*  dialogo.show(); */
+
+      const reloj = setInterval(() => {
+        let fecha = new Date();
+        let mostra = `${zero(fecha.getDate())} - ${zero(
+          fecha.getMonth() + 1
+        )} - ${fecha.getFullYear()} || ${zero(fecha.getHours())}h. : ${zero(
+          fecha.getMinutes()
+        )}m. : ${zero(
+          fecha.getSeconds()
+        )}s. <br><br><button onclick="dialogo.close();">Close dialog</button> `;
+        dialogo.innerHTML = mostra;
+      }, 1000);
+      /*    window.onload = reloj; */
+      window.addEventListener("load", reloj);
+      /*  setTimeout(() => clearInterval(reloj), 5000); */
+      /*    setTimeout(() => dialogo.close(), 10000); */
+
+      /*   const diahora = () => {
+        let reloj = new Date();
+        let horas = reloj.getHours();
+        let minutos = reloj.getMinutes();
+        let segundos = reloj.getSeconds();
+
+        document.getElementById(
+          "mostra"
+        ).innerHTML = `Hora: ${horas} - minutos :${minutos} - segundos: ${segundos} `;
+      };
+
+      window.onload = setInterval(diahora, 1000); */
+    </script>
+  </body>
+</html>

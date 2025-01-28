@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Validar fechas</title>
+</head>
+
+<body>
+    <input type="date" id="miedad" name="miedad">
+    <button type="button" onclick="edad();">Calcular</button>
+    <p id="edadcalculada"></p>
+    <hr />
+
+
+    <script>
+        function edad() {
+            let fechaNacimiento = document.querySelector('#miedad').value;
+
+            let fechaNace = new Date(fechaNacimiento);
+            let fechaActual = new Date();
+
+            let mes = fechaActual.getMonth();
+            let dia = fechaActual.getDate();
+            let anyo = fechaActual.getFullYear();
+
+            fechaActual.setDate(dia);
+            fechaActual.setMonth(mes);
+            fechaActual.setFullYear(anyo);
+
+            let edad = Math.floor(((fechaActual - fechaNace) / (1000 * 60 * 60 * 24) / 365));
+
+            document.querySelector('#edadcalculada').innerHTML = 'La edad es: ' + edad + ' Años';
+        };
+
+
+
+
+
+
+
+// 		function validarFormatoFecha(campo) {
+// 			let campo=document.getElementById("campo").value;
+// 		      let RegExPattern = /^\d{1,2}\/\d{1,2}\/\d{2,4}$/;
+// 		      if ((campo.match(RegExPattern)) && (campo!='')) {
+// 		            return true;
+// 		      } else {
+// 		            return false;
+// 		      }
+// 		}
+
+
+// 		function existeFecha(campo){
+// 			let campo=document.getElementById("campo").value;
+// 		      let fechaf = campo.split("/");
+// 		      let day = fechaf[0];
+// 		      let month = fechaf[1];
+// 		      let year = fechaf[2];
+// 		      let date = new Date(year,month,'0');
+// 		      if((day-0)>(date.getDate()-0)){
+// 		            return false;
+// 		      }
+// 		      return true;
+// 		}
+
+
+// 		function validarFechaMenorActual(campo){
+// 		let campo=document.getElementById("campo").value;
+
+//       let fecha = campo.split("/");
+//       console.log(fecha);
+//       let x=new Date();
+//       console.log(x);
+//       x.setFullYear(fecha[2],fecha[1]-1,fecha[0]);
+//       console.log(x);
+
+//       let today = new Date();
+
+//       if (x >= today){
+
+//     console.log(x+"Si");
+//       }else
+//         {
+//             console.log(x+"No");
+//         }
+// };
+
+
+// if(validarFormatoFecha(campo)){
+//       if(existeFecha(campo)){
+//             alert("La fecha introducida es correcta.");
+//       }else{
+//             alert("La fecha introducida no existe.");
+//       }
+// }else{
+//       alert("El formato de la fecha es incorrecto.");
+// }
+
+    </script>
+
+
+</body>
+
+</html>

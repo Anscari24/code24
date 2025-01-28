@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extraer carácteres de un String</title>
+    <style>
+        #mostrar {
+            background-color: aquamarine;
+            font: 1em/150% Verdana;
+            padding: 20px;
+            margin: 20px 0px;
+            display: none;
+        }
+
+        #error {
+            background-color: red;
+            color: white;
+            font: 1em/150% Verdana;
+            padding: 20px;
+            margin: 20px 0px;
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Extraer los 5 últimos carácteres de un string dado por un usuario</h1>
+    <h2>Resultado</h2>
+    <button onclick="extraer();" id="extraer">Introduce un texto mayor de 10carácteres para extraer los 5
+        últimos</button>
+    <div id="mostrar"></div>
+    <div id="error"></div>
+
+    <button onclick="recargar();" id="recargar">Reiniciar</button>
+
+    <script>
+        function extraer() {
+            let str = prompt("Escribe un texto mas largo de 10 carácteres");
+            let largo = str.length;
+            if (str.length > 10) {
+                let extraido = str.substring(largo - 5, largo);
+                let result = `El texto introducido tiene un largo de : ${largo} carácteres y sus 5 últimos extraidos son: ${extraido}`;
+                let mostrar = document.getElementById('mostrar');
+                mostrar.innerHTML = result;
+                mostrar.style.display = "block";
+                error.style.display = "none";
+            } else {
+                let result = `El texto introducido tiene un largo de : ${largo} carácteres y no he podido extraer ningun carácter`;
+                let error = document.getElementById('error');
+                error.innerHTML = result;
+                error.style.display = "block";
+                mostrar.style.display = "none";
+            }
+        }
+        function recargar() {
+            location.reload(true);
+        }
+    </script>
+
+
+</body>
+
+</html>

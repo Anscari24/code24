@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Ejercicios JavaScript 3</title>
+      <link rel="stylesheet" href="assets/mystyle.css">
+</head>
+
+<body>
+
+      <!-- Modales -->
+      <div class="modal fade" id="modal_persona" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                  <div class="modal-content">
+                        <div class="modal-header">
+                              <h5 class="modal-title" id="titular_info_modal">Información</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                              Nueva persona agregada correctamente!
+                        </div>
+                        <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                  </div>
+            </div>
+      </div>
+
+
+      <div class="container mb-5">
+            <h1 class="display-2 text-center mt-4 mb-4">
+                  Ejercicios JavaScript 3
+            </h1>
+            <!-- *** Ejercicio 1 *** -->
+            <div class="row">
+                  <div class="col">
+                        <h2>
+                              Ejercicio 1
+                        </h2>
+                        <p>
+                              Crea un html que per mitjà d'una funció et demani un número per camp de text i et digui si
+                              és nombre parell o imparell
+                        </p>
+                        <div class="mb-3">
+                              <label for="numero" class="form-label">Escribe un número</label>
+                              <input type="text" class="form-control" id="input_numero">
+                        </div>
+                        <div id="mostra1"></div>
+                        <div class="mb-3">
+                              <button class="btn btn-primary" id="btn_ejer1">Ejecutar Ejercicio</button>
+                        </div>
+                  </div>
+            </div>
+            <hr class="border border-secondary border-1 opacity-75">
+            </hr>
+
+            <!-- *** Ejercicio 2 *** -->
+            <div class="row">
+                  <div class="col">
+                        <h2>
+                              Ejercicio 2
+                        </h2>
+                        <p>
+                              Escriu un html que et demani per funció i des d'un camp de text, el resultat de dividir
+                              144/12, Aquest resultat es calcula en ottra funció i recollit en aquesta primera paradejar
+                              passar a l'usuari o no segons la seva resposta.
+                        </p>
+                        <div class="mb-3">
+                              <label for="input_ejer2" class="form-label">Qué resultado tiene dividir 144/12 ?</label>
+                              <input type="text" class="form-control" id="input_ejer2" name="input_ejer2">
+                        </div>
+                        <div id="mostra2"></div>
+                        <div class="mb-3">
+                              <button class="btn btn-primary" id="btn_ejer2">Ejecutar Ejercicio</button>
+                        </div>
+                  </div>
+            </div>
+            <hr class="border border-secondary border-1 opacity-75">
+            </hr>
+
+            <!-- *** Ejercicio 3 *** -->
+            <div class="row">
+                  <div class="col">
+                        <h2>
+                              Ejercicio 3
+                        </h2>
+                        <p>
+                              Escriu un html que demani preu sense iva, després el iva i et retorni el valor del
+                              producte amb iva, tot això amb camps de text i una funció.
+                        </p>
+                  </div>
+            </div>
+            <div class="needs-validation" id="validacion_ejer3">
+                  <div class="row">
+                        <div class="col-lg-6 col-sm-12">
+                              <div class="mb-3">
+                                    <label for="input_precio" class="form-label">Introduce el precio del
+                                          producto</label>
+                                    <input type="number" step="0.1" class="form-control" id="input_precio"
+                                          name="input_precio" min="1" max="999999" pattern="^\d+(,\d{1,2})?$" required>
+                                    <div class="valid-feedback">
+                                          Precio correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                          Debes de introducir un precio correcto
+                                    </div>
+                              </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-12">
+                              <div class="mb-3">
+                                    <label for="input_iva" class="form-label">Introduce el IVA del producto</label>
+                                    <input type="number" step="0.1" class="form-control" id="input_iva" name="input_iva"
+                                          min="0.1" max="100" pattern="^\d+(,\d{1,2})?$" required>
+                                    <div class="valid-feedback">
+                                          IVA correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                          Debes de introducir un IVA correcto
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+                  <div class="row">
+                        <div class="col">
+                              <div id="mostra3"></div>
+                              <div class="mb-3">
+                                    <button class="btn btn-primary" id="btn_ejer3">Ejecutar Ejercicio</button>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+
+            <hr class="border border-secondary border-1 opacity-75">
+            </hr>
+
+            <!-- *** Ejercicio 4 *** -->
+            <div class="row">
+                  <div class="col">
+                        <h2>
+                              Ejercicio 4
+                        </h2>
+                        <p>
+                              Escriu un programa que demani un primer número, ens permeti triar d'un select: suma,
+                              resta, multiplica, divideix, o mòdul, després ens demani un segon número i ens doni el
+                              resultat de l'operació seleccionada. Tot això amb camps de text i select.
+                        </p>
+                  </div>
+            </div>
+            <div class="needs-validation" novalidation id="validacion_ejer4">
+                  <div class="row">
+                        <div class="col-lg-4 col-sm-12">
+                              <div class="mb-3">
+                                    <label for="input_numero1" class="form-label">Introduce el primer número</label>
+                                    <input type="number" step="0.1" class="form-control" id="input_numero1"
+                                          name="input_numero1" min="1" max="99999999" pattern="^\d+(,\d{1,2})?$"
+                                          required>
+                                    <div class="valid-feedback">
+                                          Número correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                          Debes de introducir un número correcto entre 1 y 99999999
+                                    </div>
+                              </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-12">
+                              <div class="mb-3">
+                                    <label for="input_numero2" class="form-label">Introduce el segundo número</label>
+                                    <input type="number" step="0.1" class="form-control" id="input_numero2"
+                                          name="input_numero2" min="1" max="99999999" pattern="^\d+(,\d{1,2})?$"
+                                          required>
+                                    <div class="valid-feedback">
+                                          Número correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                          Debes de introducir un número correcto entre 1 y 99999999
+                                    </div>
+                              </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-12">
+                              <div class="mb-3">
+                                    <label for="operacionarealizar" class="form-label">Operación a realizar</label>
+                                    <select class="form-select" id="operacionarealizar" name="operacionarealizar"
+                                          required>
+                                          <option selected disabled value="">Elige una operación</option>
+                                          <option value="sumar">Sumar</option>
+                                          <option value="restar">Restar</option>
+                                          <option value="multiplicar">Multiplicar</option>
+                                          <option value="dividir">Dividir</option>
+                                          <option value="modulo">Hacer el módulo</option>
+                                    </select>
+                                    <div class="valid-feedback">
+                                          Operación seleccionada correcta
+                                    </div>
+                                    <div class="invalid-feedback">
+                                          Selecciona una opción válida
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+                  <div class="row">
+                        <div class="col">
+                              <div id="mostra4"></div>
+                              <div class="mb-3">
+                                    <button class="btn btn-primary" id="btn_ejer4">Ejecutar Ejercicio</button>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+
+            <hr class="border border-secondary border-1 opacity-75">
+            </hr>
+
+            <!-- *** Ejercicio 5 *** -->
+            <div class="row">
+                  <div class="col">
+                        <h2>
+                              Ejercicio 5
+                        </h2>
+                        <p>
+                              Crea un html que ens permeti recollir un array amb els mesos de l'any ja fet i el mostrem:
+                        </p>
+                        <ol>
+                              <li>En la seva ordre real</li>
+                              <li>En ordre alfabètic</li>
+                              <li>Separat amb guions</li>
+                              <li>Ordre invers</li>
+                              <li>Separat amb un altre caràcter que el teu decideixis.</li>
+                        </ol>
+                  </div>
+            </div>
+            <div class="row">
+                  <div class="col">
+                        <div class="mb-3">
+                              <button class="btn btn-primary" id="btn_ejer5">Ejecutar Ejercicio</button>
+                        </div>
+                        <div id="mostra5"></div>
+                  </div>
+            </div>
+
+            <hr class="border border-secondary border-1 opacity-75">
+            </hr>
+
+            <!-- *** Ejercicio 6 *** -->
+            <div class="row">
+                  <div class="col">
+                        <h2>
+                              Ejercicio 6
+                        </h2>
+                        <p>
+                              Crea un nou documento HTML que ens imprimeixi en la pàgina un llistat dels codis d'un
+                              producte inventat… “codigo_producte 0 , codigo_producte 1……
+                        </p>
+                  </div>
+            </div>
+
+            <div class="needs-validation" id="validacion_ejer6">
+                  <div class="row">
+                        <div class="col-lg-12 col-sm-12">
+                              <div class="mb-3">
+                                    <label for="input_numero_etiquetas" class="form-label">Introduce el número de
+                                          etiquetas</label>
+                                    <input type="number" step="1" class="form-control" id="input_numero_etiquetas"
+                                          name="input_numero_etiquetas" min="1" max="100" pattern="^\d+(,\d{1,2})?$"
+                                          required>
+                                    <div class="valid-feedback">
+                                          Número correcto
+                                    </div>
+                                    <div class="invalid-feedback">
+                                          Debes de introducir un número correcto entre 1 y 100
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+            <div class="row">
+                  <div class="col">
+                        <div class="mb-3">
+                              <div id="mostra6"></div>
+                              <button class="btn btn-primary" id="btn_ejer6">Ejecutar Ejercicio</button>
+                        </div>
+
+                  </div>
+            </div>
+
+            <hr class="border border-secondary border-1 opacity-75">
+            </hr>
+
+            <!-- *** Ejercicio 7 y 8 *** -->
+            <div class="row">
+                  <div class="col">
+                        <h2>
+                              Ejercicio 7 y 8
+                        </h2>
+                        <p>
+                              Escriu un html que ens permeti mitjançant una funció mostrar les dades d'un array
+                              associatiu d'una persona amb les següents dades:
+                        </p>
+                        <ul>
+                              <li>a- Nom</li>
+                              <li>b- Cognom</li>
+                              <li>c- Edat</li>
+                              <li>d- DNI</li>
+                        </ul>
+                        <p>
+                              Escriu un html que per mitjà d'una funció, ens permeti introduir en inputs de text, Nom,
+                              Cognoms, edat i DNI, i ho emmagatzemi en un array amb aquests índexs de posició.
+                        </p>
+                  </div>
+            </div>
+            <div class="row">
+                  <form id="form_persona" name="form_persona" class="row g-3 needs-validation" novalidate action="#">
+                        <div class="col-md-6 col-sm-12">
+                              <label for="nombre" class="form-label">Nombre</label>
+                              <input type="text" class="form-control" id="nombre" name="nombre" value="" required
+                                    pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}">
+                              <div class="valid-feedback">
+                                    Nombre Correcto
+                              </div>
+                              <div class="invalid-feedback">
+                                    Introduce bien el Nombre
+                              </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                              <label for="apellidos" class="form-label">Apellidos</label>
+                              <input type="text" class="form-control" id="apellidos" name="apellidos" value="" required
+                                    pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,60}">
+                              <div class="valid-feedback">
+                                    Apellidos Correctos
+                              </div>
+                              <div class="invalid-feedback">
+                                    Introduce bien los Apellidos
+                              </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                              <label for="edad" class="form-label">Edad</label>
+                              <input type="number" step="1" class="form-control" id="edad" name="edad" min="1" max="100"
+                                    pattern="^\d+(,\d{1,2})?$" required>
+                              <div class="valid-feedback">
+                                    Edad Correcta
+                              </div>
+                              <div class="invalid-feedback">
+                                    Introduce bien la Edad
+                              </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                              <label for="dni" class="form-label">DNI</label>
+                              <input type="text" class="form-control" id="dni" name="dni" value="" required
+                                    pattern="[0-9]{8}[A-Za-z]{1}">
+                              <div class="valid-feedback">
+                                    DNI Correcto
+                              </div>
+                              <div class="invalid-feedback">
+                                    Introduce bien el DNI
+                              </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12">
+                              <button class="btn btn-primary" type="submit">Enviar formulario</button>
+                        </div>
+                  </form>
+            </div>
+            <div class="row">
+                  <div class="col mt-3 mb-3">
+                        <button class="btn btn-secondary" id="btn_mostrar_listado_persona">Mostrar Listado</button>
+                  </div>
+            </div>
+            <div class="row" id="listado_personas_content"></div>
+
+            <hr class="border border-secondary border-1 opacity-75">
+            </hr>
+
+            <!-- *** Ejercicio 9 *** -->
+            <div class="row">
+                  <div class="col">
+                        <h2>
+                              Ejercicio 9
+                        </h2>
+                        <p>
+                              Escriu un html que ens permeti introduir 5 primers, 5 segons, i 5 postres del menú
+                              setmanal d'un restaurant, aquest s’haurà de mostrar a una taula indican Primer, Segón, i
+                              postre de cada dia, de dilluns a divendres
+                        </p>
+                  </div>
+            </div>
+
+            <div class="row" id="content_form_menu">
+                  <form id="form_menu" name="form_menu" class="row g-3 needs-validation" novalidate action="#">
+                        <div class="col-md-12 col-sm-12">
+                              <label for="primero" class="form-label">Primero</label>
+                              <input type="text" class="form-control" id="primero" name="primero" value="" required
+                                    pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,60}">
+                              <div class="valid-feedback">
+                                    Nombre de plato Correcto
+                              </div>
+                              <div class="invalid-feedback">
+                                    Introduce bien el Nombre del plato
+                              </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                              <label for="segundo" class="form-label">Segundo</label>
+                              <input type="text" class="form-control" id="segundo" name="segundo" value="" required
+                                    pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,60}">
+                              <div class="valid-feedback">
+                                    Nombre de plato Correcto
+                              </div>
+                              <div class="invalid-feedback">
+                                    Introduce bien el Nombre del plato
+                              </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                              <label for="postre" class="form-label">Postre</label>
+                              <input type="text" class="form-control" id="postre" name="postre" value="" required
+                                    pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,60}">
+                              <div class="valid-feedback">
+                                    Nombre del postre Correcto
+                              </div>
+                              <div class="invalid-feedback">
+                                    Introduce bien el Nombre del postre
+                              </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                              <button class="btn btn-primary" type="submit">Enviar Menú</button>
+                        </div>
+                  </form>
+            </div>
+
+            <div class="row" id="content_table_menu"></div>
+
+      </div>
+
+
+      <script src="assets/js/bootstrap.bundle.min.js"></script>
+      <script src="assets/js/ejerciciosj3.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+body{
+	background-color:#e0ebeb;
+}
+.container{
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 100%;
+	min-height:40vw;
+	flex-direction: column;	
+	margin-top:5vw;
+}
+.exercici{
+	background-color: #d0e1e1;
+	font-size:5vw;
+	margin-bottom:10px;
+	padding:2px 4px 2px 4px;
+
+}
+.table{
+	font-size:10px;
+}
+#nil{
+	align-self: flex-end;
+	margin-right:10px;
+	margin-top: auto;
+}
+tr:first-child{
+	font-weight: bold;
+}

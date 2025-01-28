@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+      let finMundo = Date.parse("Jun 21, 2012");
+      let SecDate = Date.now();
+      let fecha = new Date();
+      finMundo = SecDate - finMundo;
+
+      let div = document.getElementById("container");
+      div.innerHTML =
+        "<p>Milisegundos transcurridos desde el fin del mundo segun el calendario Maya:<br/>" +
+        finMundo +
+        "<br/><br/> Fecha actual:<br/>" +
+        fecha;
+    </script>
+  </body>
+</html>

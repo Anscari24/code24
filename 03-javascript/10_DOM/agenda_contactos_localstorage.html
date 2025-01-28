@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Agenda de Contactos en LocalStorage</title>
+    <meta charset=utf-8>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+        integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
+        crossorigin="anonymous">
+    <style>
+        #contenedor {
+            width: 360px;
+        }
+
+        #gbotones {
+            margin-bottom: 15px;
+        }
+
+        .input-group {
+            margin-bottom: 5px;
+        }
+
+        .badge-info {
+            background-color: #5bc0de;
+        }
+    </style>
+</head>
+
+<body onload="actualizarDatos()">
+    <div id="contenedor" class="container">
+        <header>
+            <h3>Agenda de contactos
+                <small> LocalStorage</small>
+            </h3>
+            <hr>
+        </header>
+
+        <form class="form-inline">
+
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">@</span>
+                <input type="text" class="form-control" placeholder="Nombre" id="nombre"
+                    aria-describedby="basic-addon1">
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">0034 - </span>
+                <input type="text" class="form-control" placeholder="movil" id="movil" aria-describedby="basic-addon1">
+            </div>
+
+        </form>
+        <hr />
+
+        <div id="gbotones" class="btn-group" role="group" aria-label="...">
+            <button type="button" onclick="guardarDato()" class="btn btn-info">
+                <i class="fas fa-save"></i> Guardar
+            </button>
+            <button type="button" onclick="recuperarDato()" class="btn btn-success">
+                <i class="fas fa-edit"></i> Recuperar
+            </button>
+            <button type="button" onclick="eliminarDato()" class="btn btn-danger">
+                <i class="fas fa-trash-alt"></i>Eliminar
+            </button>
+
+        </div>
+
+        <button type="button" onclick="eliminarTodo()" class="btn btn-danger">
+            <i class="fas fa-trash-alt"></i> Eliminar Todos
+        </button>
+        <hr>
+
+        <ul id="contactos" class="list-group">
+        </ul>
+
+    </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
+    integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn 2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
+    crossorigin="anonymous"></script>
+<script>
+    function guardarDato() {
+        let nombre = document.getElementById("nombre").value;
+        let movil = document.getElementById("movil").value;
+        localStorage.setItem(nombre, movil);
+        nombre.value = "";
+        movil.value = "";
+        actualizarDatos();
+    }
+
+    function recuperarDato() {
+        let nombre = document.getElementById("nombre").value;
+        localStorage.getItem(nombre);
+        document.getElementById("movil").value = localStorage.getItem(nombre);
+    }
+
+    function eliminarDato() {
+        let nombre = document.getElementById("nombre").value;
+        localStorage.removeItem(nombre);
+        nombre.value = "";
+        actualizarDatos();
+
+    }
+
+    function eliminarTodo() {
+        localStorage.clear();
+        actualizarDatos();
+    }
+
+    function actualizarDatos() {
+        let pares = "";
+        if (localStorage.length === 0) {
+            pares += '<li class="list-group-item">Vacío</li>';
+        } else {
+            for (let i = 0; i <= localStorage.length - 1; i++) {
+                let key = localStorage.key(i);
+                pares += '<li class="list-group-item"><span class="alert alert-primary" role="alert">' + key + '</span>' + localStorage.getItem(key) + '</li>';
+            }
+        }
+        document.getElementById('contactos').innerHTML = pares;
+    }
+</script>
+
+</html>

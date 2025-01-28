@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calcular el área de un triángulo</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body>
+  <div class="w3-container w3-padding-32">
+    <label for="base">Introduce un número</label>
+    <input class="w3-input" type="text" id="numero" name="numero" value="" onkeyup="toca(event)">
+
+    <button id="calcula" class="w3-button w3-green w3-margin">Calcular </button>
+    <button id="borra" class="w3-button w3-red w3-margin">Borrar</button>
+
+    <div id="mostra" class="w3-container w3-padding-32">
+
+    </div>
+  </div>
+  <script>
+    let result, res;
+    const numero = document.querySelector('#numero');
+    const mostra = document.querySelector('#mostra');
+
+
+    const calcular = () => {
+      let n = numero.value;
+      n = Number(n.replace(",", "."));
+      n = Math.round(n);
+      if (isNaN(n) || n == "") {
+        result = `No puedo operar`;
+      } else {
+        res = n % 2;
+        (res !== 0) ? result = `El valor introducido es un número impar, concretamente el ${n}<br/>` : result = `El valor introducido es un número par, concretamente el ${n}<br/>`;
+      }
+      mostra.innerHTML = result;
+    }
+
+    const borrar = () => {
+      numero.value = "";
+      mostra.innerHTML = "";
+    }
+
+    const calcula = document.querySelector('#calcula');
+    calcula.onclick = calcular;
+
+    const borra = document.querySelector('#borra');
+    borra.onclick = borrar;
+
+    function toca(event) {
+      let keycode = event.keyCode;
+      if (keycode == 13) {
+        calcular();
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>

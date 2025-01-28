@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <title>M&eacute;todo slice</title>
+  </head>
+
+  <body>
+    <script type="text/javascript">
+      let arrA = [1, 2, 3];
+      let arrC = [];
+      let arrB = arrA.slice();
+      console.log(arrB);
+
+      arrC = arrC.concat(arrA);
+      console.log(arrB);
+
+      let numeros = [
+        "uno",
+        "dos",
+        "tres",
+        "cuatro",
+        "cinco",
+        "seis",
+        "siete",
+        "ocho",
+        "nueve",
+        "diez",
+      ];
+      let duplicado = numeros.slice(numeros);
+      let ultimos_cuatro = numeros.slice(-4);
+      let primeros_cinco = numeros.slice(0, 5);
+      document.write("Numeros completo desde original: " + numeros + "<br>");
+      document.write("Numeros completo desde su slice: " + duplicado + "<br>");
+      document.write("los cuatro últimos valores: " + ultimos_cuatro + "<br>");
+      document.write("los cinco primeros valores: " + primeros_cinco + "<br>");
+
+      document.write("Numeros completo desde original: " + numeros + "<br>");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="crear">Crea botones</button>
+    <div id="botones"></div>
+    <script>
+        const crear = document.querySelector("#crear");
+        const botones = document.querySelector("#botones");
+        const crearbotones = () => {
+            for (i = 0; i < 101; i++) {
+                let boton =
+                    `<input type='button' value=' ${i} ' onclick='funcionControlaboton(${i};'>`;
+                botones.innerHTML += boton;
+                if (i % 10 == 0) botones.innerHTML += "<br />";
+            }
+        }
+        crear.addEventListener("click", crearbotones);
+
+    </script>
+
+</body>
+
+</html>

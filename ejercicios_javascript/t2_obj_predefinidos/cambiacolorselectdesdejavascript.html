@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar fondo desde un select</title>
+</head>
+
+<body>
+    <h1>Select desde javascript para cambiar el color de fondo</h1>
+    <h2>Resultado</h2>
+    <div id="mostrar"></div>
+
+    <script>
+        let selector = `
+        <form id="cambiacolor" name="cambiacolor">
+            <label for="color">Selecciona un color de fondo;</label>
+            <select id="color" name="color">
+                <option value="Selecciona un color">Selecciona un color</option>
+                <option value="red">Rojo</option>
+                <option value="green">Verde</option>
+                <option value="lightblue">Azul</option>
+                <option value="aqua">Aqua</option>
+            </select>
+            <input type="button" value="Cambia el color" onclick="document.body.style.backgroundColor=document.getElementById('color').value">
+
+             <input type="button" value="Cambia el color" onclick="document.body.style.backgroundColor=document.cambiacolor.color.value">
+           
+        </form>`;
+        let mostrar = document.getElementById('mostrar');
+        mostrar.innerHTML = selector;
+
+        function recargar() {
+            location.reload(true);
+        }
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular el área de un triángulo</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <style type="text/css">
+        .container {
+            padding: 3rem;
+        }
+
+        #mostra {
+            background-color: yellowgreen;
+            padding: 1rem;
+            margin: 2rem;
+            display: none;
+        }
+
+        .btn-secondary {
+            background-color: yellow;
+        }
+
+        input[type=text] {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w3-container w3-padding-32">
+        <label for="numero">Introduce el resultado de la siguiente operación: 144/12</label>
+        <input class="w3-input" type="text" id="numero" name="numero" value="" onkeyup="toca(event)">
+        <button id="calcula" class="w3-button w3-green w3-margin">Calcular </button>
+        <button id="borra" class="w3-button w3-red w3-margin">Borrar</button>
+
+        <div id="mostra" class="w3-container w3-padding-32"></div>
+    </div>
+
+    <script>
+        let compruebaResultado;
+        const entrada = document.querySelector('#numero');
+        const mostra = document.querySelector('#mostra');
+
+        const comprobar_h = () => {
+            let num = entrada.value;
+            num = Number(num);
+
+            let humano = verifica(num);
+
+            if (humano === true) {
+                mostra.innerHTML = "Correcto, puedes pasar";
+                mostra.style.display = "block";
+                mostra.style.backgroundColor = "yellowgreen";
+            } else {
+                mostra.innerHTML = "No correcto te quedan X intentos, no puedes pasar";
+                mostra.style.display = "block";
+                mostra.style.backgroundColor = "red";
+                mostra.style.color = "#fff";
+            }
+        };
+
+        const verifica = (valor) => {
+            if (valor === 12) compruebaResultado = true;
+            else compruebaResultado = false;
+            return compruebaResultado;
+        }
+        const borrar = () => {
+
+            mostra.innerHTML = "";
+            mostra.style.display = "none";
+            entrada.value = "";
+
+        }
+        const calcula = document.querySelector('#calcula');
+        calcula.onclick = comprobar_h;
+
+        const borra = document.querySelector('#borra');
+        borra.onclick = borrar;
+
+        function toca(event) {
+            let keycode = event.keyCode;
+            if (keycode == 13) {
+                comprobar_h();
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>

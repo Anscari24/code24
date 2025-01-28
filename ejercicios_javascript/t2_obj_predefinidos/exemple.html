@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="mostra"></div>
+    <script>
+        const selector = `<form action="">
+    <label for="cars">Choose a car:</label>
+    <select id="color" name="cars">
+        <option value="volvo">Volvo</option>
+        <option value="red">Saab</option>
+        <option value="fiat">Fiat</option>
+        <option value="audi">Audi</option>
+    </select>
+    <button type="button"
+        onclick="document.body.style.backgroundColor=document.getElementById('color').value" >Cambiar</button>
+</form>`;
+        document.getElementById('mostra').innerHTML = selector;
+    </script>
+
+
+
+
+
+</body>
+
+</html>

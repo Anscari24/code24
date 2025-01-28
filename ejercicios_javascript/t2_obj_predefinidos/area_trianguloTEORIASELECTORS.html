@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular el área de un triángulo rectángulo</title>
+    <style>
+        .most {
+            background-color: aquamarine;
+            font: 1em/150% Verdana;
+            padding: 20px;
+            margin: 20px 0px;
+            display: none;
+        }
+
+        .err {
+            background-color: red;
+            color: white;
+            font: 1em/150% Verdana;
+            padding: 20px;
+            margin: 20px 0px;
+            display: none;
+        }
+
+        .cambiovista {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Calcular el área de un triángulo rectángulo</h1>
+    <h2>Resultado</h2>
+    <button onclick="area_triangulo();" id="area">Calcula el área de un triángulo rectángulo</button>
+    <div id="mostrar" class="most"></div>
+    <div id="error" class="err"></div>
+    <button onclick="recargar();" id="recargar">Volver a calcular</button>
+    <script>
+        function area_triangulo() {
+            let n1 = Number(prompt("Base:"));
+            let n2 = Number(prompt("Altura: "));
+            let result = n1 * n2 / 2;
+            if (!Number(result)) {
+                let output = `No es un número: ${result} `;
+                let error = document.getElementById('error');
+                error.innerHTML = output;
+                // error.classList.toggle("cambiovista");
+                error.classList.add("cambiovista");
+                mostrar.classList.remove("cambiovista");
+            } else {
+                let output = `El Área del triángulo de base ${n1} y altura ${n2} es : ${result} `;
+                let mostrar = document.getElementById('mostrar');
+                mostrar.innerHTML = output;
+                // mostrar.classList.toggle("cambiovista");
+                mostrar.classList.add("cambiovista");
+                error.classList.remove("cambiovista");
+            }
+        }
+
+        function recargar() {
+            location.reload(true);
+        }
+    </script>
+
+
+</body>
+
+</html>

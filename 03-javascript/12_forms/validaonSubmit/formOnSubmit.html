@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <style type="text/css">
+        .error {
+            display: none;
+        }
+
+        .btn {
+            margin-top: 2rem;
+        }
+
+        input.form-control,
+        select.form-control,
+        input.form-check-input {
+            border: 1px solid black;
+        }
+    </style>
+
+    <title>Formulario validado con js</title>
+    <script type="text/javascript" src="validaOnSubmit.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Formulario de contacto</h1>
+            <h3 class="alert alert-danger">Todos los controles de este formulario son obligatorios</h3>
+        </header>
+        <form name="firstContact" id="firstContact" method="get" action="https//dominio.ext/fichero.php"
+            onsubmit="return validaEnvia();">
+
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej:Nombre" autofocus>
+            </div>
+            <div class="form-group">
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" class="form-control" id="apellidos" name="apellidos"
+                    placeholder="Ej:PrimerApellido SegundoApellido">
+            </div>
+            <div class="form-group">
+                <label for="dni">Dni/Nie:</label>
+                <input type="text" class="form-control" id="dni" name="dni" placeholder="Ej:00000000F / X000000F">
+            </div>
+            <div class="form-group">
+                <label for="direccion">Dirección:</label>
+                <input type="text" class="form-control" id="direccion" name="direccion"
+                    placeholder="Ej:C/Calle, número, piso">
+            </div>
+            <div class="form-group">
+                <label for="localidad">Localidad:</label>
+                <input type="text" class="form-control" id="localidad" name="localidad" placeholder="Ej:Población">
+            </div>
+
+            <div class="form-group">
+                <label for="provincia">Provincia:</label>
+                <select class="form-control" id="provincia" name="provincia">
+
+                    <option value='0' selected>Seleccione......</option>
+                    <option value='alava'>Álava</option>
+                    <option value='albacete'>Albacete</option>
+                    <option value='alicante'>Alicante/Alacant</option>
+                    <option value='almeria'>Almería</option>
+                    <option value='asturias'>Asturias</option>
+                    <option value='avila'>Ávila</option>
+                    <option value='badajoz'>Badajoz</option>
+                    <option value='barcelona'>Barcelona</option>
+                    <option value='burgos'>Burgos</option>
+                    <option value='caceres'>Cáceres</option>
+                    <option value='cadiz'>Cádiz</option>
+                    <option value='cantabria'>Cantabria</option>
+                    <option value='castellon'>Castellón/Castelló</option>
+                    <option value='ceuta'>Ceuta</option>
+                    <option value='ciudadreal'>Ciudad Real</option>
+                    <option value='cordoba'>Córdoba</option>
+                    <option value='cuenca'>Cuenca</option>
+                    <option value='girona'>Girona</option>
+                    <option value='laspalmas'>Las Palmas</option>
+                    <option value='granada'>Granada</option>
+                    <option value='guadalajara'>Guadalajara</option>
+                    <option value='guipuzcoa'>Guipúzcoa</option>
+                    <option value='huelva'>Huelva</option>
+                    <option value='huesca'>Huesca</option>
+                    <option value='illesbalears'>Illes Balears</option>
+                    <option value='jaen'>Jaén</option>
+                    <option value='acoruña'>A Coruña</option>
+                    <option value='larioja'>La Rioja</option>
+                    <option value='leon'>León</option>
+                    <option value='lleida'>Lleida</option>
+                    <option value='lugo'>Lugo</option>
+                    <option value='madrid'>Madrid</option>
+                    <option value='malaga'>Málaga</option>
+                    <option value='melilla'>Melilla</option>
+                    <option value='murcia'>Murcia</option>
+                    <option value='navarra'>Navarra</option>
+                    <option value='ourense'>Ourense</option>
+                    <option value='palencia'>Palencia</option>
+                    <option value='pontevedra'>Pontevedra</option>
+                    <option value='salamanca'>Salamanca</option>
+                    <option value='segovia'>Segovia</option>
+                    <option value='sevilla'>Sevilla</option>
+                    <option value='soria'>Soria</option>
+                    <option value='tarragona'>Tarragona</option>
+                    <option value='santacruztenerife'>Santa Cruz de Tenerife</option>
+                    <option value='teruel'>Teruel</option>
+                    <option value='toledo'>Toledo</option>
+                    <option value='valencia'>Valencia/Valéncia</option>
+                    <option value='valladolid'>Valladolid</option>
+                    <option value='vizcaya'>Vizcaya</option>
+                    <option value='zamora'>Zamora</option>
+                    <option value='zaragoza'>Zaragoza</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="cp">Código postal:</label>
+                <input type="text" class="form-control" id="cp" name="cp" placeholder="Ej:00000">
+            </div>
+            <div class="form-group">
+                <label for="tel">Teléfono:</label>
+                <input type="phone" class="form-control" id="tel" name="tel" placeholder="Ej:000000000">
+            </div>
+            <div class="form-group">
+                <label for="mail">Correo electrónico:</label>
+                <input type="email" class="form-control" id="mail" name="mail" placeholder="Ej:nombre@dominio.ext">
+            </div>
+            <div class="form-check">
+                <label class="form-check-label" for="condiciones">
+                    <input type="checkbox" class="checkbox-primary" id="condiciones" name="condiciones">
+                    He leido y acepto las condiciones generales de la web</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar formulario</button>
+            <button type="reset" class="btn btn-secondary">Borrar formulario</button>
+        </form>
+        <div class="alert alert-danger error" name="error" id="error"></div>
+
+
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

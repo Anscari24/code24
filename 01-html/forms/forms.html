@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>formularios con HTML 5</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <h1>Formularios con Html 5</h1>
+    <h3>contacta con nosotros</h3>
+    <!--     <form action="nombreservidor.ext/directorio/archivogestor.php" method="get"> -->
+    <form action="https://formsubmit.co/oscareroles@gmail.com" method="post">
+      <fieldset>
+        <legend>Datos Personales</legend>
+        <div>
+          <label for="nombre">Nombre y apellidos</label>
+          <input
+            id="nombre"
+            name="nombre"
+            type="text"
+            placeholder="Ej. Vilma Picapiedra"
+            autofocus
+            required
+            pattern="^[A-ZÀ]{1}[a-zA-ZÀ-ÿ\u00f1\u00d1\s]{2,40}$"
+          />
+        </div>
+        <div>
+          <label for="telefono">Teléfono</label>
+          <input type="text" name="telefono" id="telefono" pattern="\d{9,11}" />
+        </div>
+        <div>
+          <label for="correo">Correo electrónico</label>
+          <input
+            type="email"
+            name="correo"
+            id="correo"
+            pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,9}"
+            required
+          />
+        </div>
+        <div>
+          <label for="edad">Fecha de nacimiento</label>
+          <input type="date" name="edad" id="edad" />
+        </div>
+        <div>
+          <p>Indica tu sexo</p>
+          <label for="sexo">Mujer</label>
+          <input type="radio" name="sexo" id="sexo" value="Mujer" checked />
+          <label for="sexo">Hombre</label>
+          <input type="radio" name="sexo" id="sexo" value="Hombre" />
+          <label for="sexo">No binario</label>
+          <input type="radio" name="sexo" id="sexo" value="No binario" />
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Datos profesionales y preferencias</legend>
+        <div>
+          <label for="idioma">Idioma materno</label>
+          <select name="idioma" id="idioma" required>
+            <option value="" selected>Elige una opción</option>
+            <option value="es">Español</option>
+            <option value="en">Inglés</option>
+            <option value="fr">Aleman</option>
+            <option value="gall">Gallego</option>
+          </select>
+        </div>
+        <div>
+          <label for="lenguajes"
+            >Selecciona los lenguajes de programación que conozcas</label
+          ><br />
+          <select name="lenguajes" id="lenguajes" required multiple>
+            <option value="" selected>Elige una o varias opciones</option>
+            <option value="js">Javascript</option>
+            <option value="php">Php</option>
+            <option value="java">Java</option>
+            <option value="c++">C++</option>
+          </select>
+        </div>
+        <div>
+          <p>Aficiones</p>
+          <label for="deportes">Deportes</label>
+          <input
+            type="checkbox"
+            name="deportes"
+            id="deportes"
+            value="deportes"
+          />
+          <label for="salud">Salud</label>
+          <input type="checkbox" name="salud" id="salud" value="salud" />
+          <label for="finanzas">Finanzas</label>
+          <input
+            type="checkbox"
+            name="finanzas"
+            id="finanzas"
+            value="finanzas"
+          />
+          <label for="politica">Política</label>
+          <input
+            type="checkbox"
+            name="politica"
+            id="politica"
+            value="politica"
+          />
+        </div>
+        <div>
+          <label for="cv">Sube tu Currículum vitae</label>
+          <input type="file" name="cv" id="cv" accept=".doc,.pdf,.jpg" />
+        </div>
+        <div>
+          <label for="consulta">Explicanos en que podemos ayudarte</label><br />
+          <textarea name="consulta" id="consulta"></textarea>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Gestión de datos</legend>
+        <input type="reset" value="Restablecer" />
+        <!--   <button type="reset">Restablecer</button> -->
+        <input type="submit" value="Enviar" />
+        <!--      <button type="submit">Enviar</button> -->
+      </fieldset>
+    </form>
+    <p><a href="../index.html">Volver a inicio</a></p>
+  </body>
+</html>

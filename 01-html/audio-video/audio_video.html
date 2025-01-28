@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audio y Vídeo con HTML 5</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <!-- h1{Audio y Vídeo con HTML 5}+h3{Audio}+h3{Vídeo} -->
+    <h1>Audio y Vídeo con HTML 5</h1>
+    <h3>Audio</h3>
+    <audio controls>
+      <source
+        src="../media/HakunaMatataItMeansNoWorries.ogg"
+        type="audio/ogg"
+      />
+      <source
+        src="../media/HakunaMatataItMeansNoWorries.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+    <!--     <audio src="../media/HakunaMatataItMeansNoWorries.ogg" type="audio/mpeg" controls ></audio> -->
+    <h3>Vídeo</h3>
+    <video id="musicos" poster="../img/musicos.jpg" width="420">
+      <source src="../media/musics.mp4" type="video/mp4" />
+      <source src="../media/musics.ogv" type="video/ogg" />
+    </video>
+    <p>
+      <button onclick="reproducePara();">Play/Pause</button>
+      <button onclick="big()">Grande</button>
+      <button onclick="small()">Pequeño</button>
+      <button onclick="normal()">Mediano</button>
+    </p>
+    <p><a href="../index.html">volver a inicio</a></p>
+    <script src="../js/javascript.js"></script>
+  </body>
+</html>

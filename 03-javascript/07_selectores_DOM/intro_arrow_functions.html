@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Arrow functions</title>
+</head>
+
+<body>
+    <h2 id="saludo"></h2>
+    <h2 id="suma"></h2>
+
+
+    <script>
+        const saludoId = document.querySelector('#saludo');
+
+        /* function saludar(nombre) {
+              return `Hola ${nombre}`;
+          }
+          alert(saludar("Pepe"));
+
+          saludoId.innerHTML = saludar('Ignacio'); */
+
+        const saludar = (nombre) => `Hola ${nombre}`;
+
+        saludoId.innerHTML = saludar('Ignacio');
+
+        const sumaId = document.querySelector('#suma');
+
+
+        /*       function suma(num1, num2) {
+                  let num3 = 10;
+                  return num1 + num2 + num3;
+              }
+              sumaId.innerHTML = suma(20, 20); */
+
+
+        const sumar = (num1, num2) => {
+            let num3 = 10;
+            return num1 + num2 + num3;
+        }
+
+        sumaId.innerHTML = sumar(20, 20);
+
+
+
+    </script>
+</body>
+
+</html>

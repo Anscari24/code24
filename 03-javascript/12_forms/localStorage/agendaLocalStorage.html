@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Agenda con LocalStorage</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <style type="text/css">
+    .input-group{
+        margin-bottom: 10px;
+    }
+   
+    </style>
+<script type="text/javascript">
+
+/*
+localStorage.setItem(nom,valor);
+localStorage.getItem(nom);
+localStorage.removeItem(nom);
+localStorage.clear();
+*/
+
+    function guardarDato(){
+       /* var nom=document.getElementById('nom').value;*/
+       /* var movil=document.getElementById('movil').value;*/
+        var nom=document.agenda.nom.value;
+        var movil=document.agenda.movil.value;
+        localStorage.setItem(nom,movil);
+        document.agenda.nom.value   ="";
+        document.agenda.movil.value ="";
+        actualizar();
+    };
+    function recuperarDato(){
+        var nom=document.agenda.nom.value;
+        localStorage.getItem(nom);
+        document.agenda.movil.value =localStorage.getItem(nom);
+    };
+    function eliminarDato(){
+        var nom=document.agenda.nom.value;
+        localStorage.removeItem(nom);
+        actualizar();
+    };
+    function borrarTodo(){
+        localStorage.clear();
+        actualizar();
+    };
+
+    function actualizar(){
+        var dato="";
+        if(localStorage.length===0){
+            dato+="<li class='list-group-item'>Sin Contactos en la Agenda</li> ";
+        }else{
+            for(var i=0;i<localStorage.length;i++){
+                var key=localStorage.key(i);
+                dato+="<li class='list-group-item'>"+key+"<span class='badge badge-info'> "+localStorage.getItem(key)+"</span></li>";
+            }
+
+        }
+        document.getElementById('contactos').innerHTML=dato;
+    };
+
+
+
+</script>
+</head>
+<body onload="actualizar();">
+<div class="container">
+
+<header>
+    <h2>Agenda de contactos</h2>
+</header>
+
+<form name="agenda" class="form-inline">		
+<div class="input-group">
+    <label class="input-group-addon" for="nom">@</label>
+    <input type="text" class="form-control" id="nom" name="nom" placeholder="Nombre">   
+</div>
+<div class="input-group">
+    <label class="input-group-addon" for="movil">0034</label>
+    <input type="text" class="form-control" id="movil" name="movil" placeholder="999999999">
+</div>
+
+</form>
+<hr/>
+<div class="btn-group" role="group">
+<button type="button" class="btn btn-info" onclick="guardarDato();"><i class="far fa-save"></i> Guardar</button>
+<button type="button" class="btn btn-success" onclick="recuperarDato();"><i class="far fa-window-restore"></i> Recuperar</button>
+<button type="button" class="btn btn-danger" onclick="eliminarDato();"><i class="fas fa-trash-alt"></i> Eliminar</button>
+</div>
+<hr/>
+<button type="button" class="btn btn-danger" onclick="borrarTodo();"><i class="fas fa-eraser"></i> Borrar Agenda</button>
+<hr/>
+<ul id="contactos" class="list-group">
+    
+</ul>
+
+
+</div>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+</body>
+</html>

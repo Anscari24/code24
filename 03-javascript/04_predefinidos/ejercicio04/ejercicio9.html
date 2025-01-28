@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ancho y alto de pantalla en pixeles</title>
+  </head>
+  <body>
+    <p id="screen"></p>
+    <script>
+      let width, height, diagonal;
+      width = screen.width;
+      height = screen.height;
+      diagonal = Math.hypot(width / 300 / 0.393701, height / 300 / 0.393701);
+      diagonal = parseInt(diagonal * 300 * 0.393701);
+      let pantalla = document.getElementById("screen");
+      pantalla.innerHTML =
+        "<p>Ancho de pantalla: " +
+        width +
+        "px.<br/> Alto de pantalla: " +
+        height +
+        "px. <br/> Diagonal de pantalla: " +
+        diagonal +
+        "px.</p>";
+    </script>
+  </body>
+</html>

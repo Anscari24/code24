@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Arrays</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .container {
+            padding: 3rem;
+        }
+
+        #mostra {
+            background-color: yellowgreen;
+            padding: 1rem;
+            margin: 2rem;
+            display: none;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div class="w3-container w3-padding-32">
+        <h2 class="w3-padding-16 w3-margin-left">Ordenación de Arrays con métodos</h2>
+        <div id="previa" class="w3-container w3-padding-32"></div>
+        <button id="muestra" class="w3-button w3-green w3-margin">Muéstrame la última ordenación !!!</button>
+        <button id="borra" class="w3-button  w3-red w3-margin">Borrar</button>
+
+        <div id="mostra" class="w3-container w3-padding-32"></div>
+
+
+    </div>
+    <script>
+        const previa = document.querySelector('#previa');
+        const mostrar = document.querySelector('#muestra');
+        const mostra = document.querySelector('#mostra');
+        let resultado = "";
+        const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+        const copia = meses.slice();
+        console.log(copia);
+
+        let metodos = `${meses} <br/>`;
+        metodos += `${meses.sort()} <br/>`;
+        metodos += `${meses.join(" , ")} <br/>`;
+        metodos += `${meses.join(" -  ")} <br/>`;
+        metodos += `${meses.reverse()} <br/>`;
+        metodos += `${meses.join(" -  ")} <br/>`;
+        metodos += `${meses.join(" {::} ")} <br/>`;
+
+
+        setTimeout(() => { previa.innerHTML = metodos; }, 2000);
+
+
+
+        const mostraM = () => {
+            for (let x in meses) {
+                resultado += `${meses[x]} ...<br/>`;
+            }
+            mostra.innerHTML = resultado;
+            mostra.style.display = "block";
+        }
+
+        const borrar = () => {
+            resultado = "";
+            previa.innerHTML = "";
+            setTimeout(() => { previa.innerHTML = metodos; }, 2000);
+            mostra.style.display = "none";
+
+        }
+
+
+
+
+        /*   const borra = document.querySelector('#borra');
+          borra.onclick = borrar; */
+
+        mostrar.addEventListener('click', mostraM);
+        borra.addEventListener('click', borrar);
+    </script>
+
+</body>
+
+</html>

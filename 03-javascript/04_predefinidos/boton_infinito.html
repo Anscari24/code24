@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boton Infinito y más allá</title>
+</head>
+
+<body>
+    <script>
+        let cont = 0;
+        function bombilla() {
+            if (cont % 2 == 0) {
+                document.getElementById('bombilla').src = "imgs/apagada.gif";
+            } else {
+                document.getElementById('bombilla').src = "imgs/encendida.gif";
+            }
+            cont++;
+        }
+        function bombilla2() {
+            let bombilla = document.getElementById('bombilla');
+            if (bombilla.src.match("apagada")) {
+                bombilla.src = "imgs/encendida.gif";
+            } else {
+                bombilla.src = "imgs/apagada.gif";
+            }
+        }
+        function bombilla3() {
+            let bombilla = document.getElementById('bombilla');
+            if (bombilla.src.includes("apagada")) {
+                bombilla.src = "imgs/encendida.gif";
+            } else {
+                bombilla.src = "imgs/apagada.gif";
+            }
+        }
+
+    </script>
+
+    <button onclick="bombilla();">Enciende o Apaga la bombilla-con-resto-division</button>
+    <button onclick="bombilla2();">Enciende o Apaga la bombilla-con-match()</button>
+    <button onclick="bombilla3();">Enciende o Apaga la bombilla-con-includes()</button>
+
+    <img id="bombilla" src="imgs/encendida.gif" alt="encendida" title="Bombilla encendida" />
+
+</body>
+
+</html>

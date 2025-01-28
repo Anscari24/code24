@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img src="imagenes_bombilla/apagada.gif" id="bombilla" alt="" />
+    <button type="button" onclick="cambiar()">encender/apagar</button>
+    <script>
+      let bombilla = document.getElementById("bombilla");
+      let cont = 1;
+      function cambiar() {
+        if (cont === 0) {
+          bombilla.src = "imagenes_bombilla/apagada.gif";
+          cont = 1;
+        } else if (cont === 1) {
+          bombilla.src = "imagenes_bombilla/encendida.gif";
+          cont = 0;
+        }
+      }
+    </script>
+  </body>
+</html>

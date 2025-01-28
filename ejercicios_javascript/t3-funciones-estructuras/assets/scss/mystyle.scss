@@ -1,0 +1,18 @@
+// Importar Bootstrap
+@import "bootstrap";
+
+.cuerpo_principal{
+      h1{
+            text-align: center;
+      }
+}
+#btn_mostrar_listado_persona{
+      display: none;
+}
+.mostrar_elemento{
+      display: block !important;
+}
+.hide_content{
+      display: none !important;
+}
+

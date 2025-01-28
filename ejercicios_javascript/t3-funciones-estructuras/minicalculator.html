@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Mini Calculator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+  <div>
+
+    <input id="operando1" type="text" />
+    <select id="operador">
+      <option selected="selected" value="....">Selecciona operación</option>
+      <option value="+">Suma</option>
+      <option value="-">Resta</option>
+      <option value="*">Multiplicación</option>
+      <option value="/">División</option>
+      <option value="%">Módulo</option>
+    </select>
+    <input id="operando2" type="text" />
+    <input type="button" id="calcular" value="Calcular" />
+    <input type="button" id="borrar" value="Borrar" />
+
+    <br />
+    <input id="resultado" type="text">
+  </div>
+  <script>
+    let result, res;
+    const operacion = document.querySelector("#operador");
+    const operando1 = document.querySelector("#operando1");
+    const operando2 = document.querySelector("#operando2");
+    const resultado = document.querySelector("#resultado");
+
+    const calcular = () => {
+      let opera = operacion.value;
+      let opera1 = operando1.value;
+      let opera2 = operando2.value;
+      opera1 = Number(opera1);
+      opera2 = Number(opera2);
+
+      if (isNaN(opera1) || isNaN(opera2) || opera1 == "" || opera2 == "") {
+        result = `No puedo operar, uno o los dos valores no son numéricos`;
+      } else {
+
+        if (opera === "+") {
+          result = Number(opera1) + Number(opera2);
+        } else if (opera === "-") {
+          result = opera1 - opera2;
+        } else if (opera === "*") {
+          result = opera1 * opera2;
+        } else if (opera === "/") {
+          result = opera1 / opera2;
+        } else if (opera === "%") {
+          result = opera1 % opera2;
+        } else {
+          result = "No puedo operar";
+        }
+
+      }
+      resultado.value = result;
+    }
+    const borrar = () => {
+      operacion.value = "....";
+      operando1.value = "";
+      operando2.value = "";
+      resultado.value = "";
+
+    }
+    const calcula = document.querySelector("#calcular");
+    calcula.onclick = calcular;
+
+    const borra = document.querySelector('#borrar');
+    borra.onclick = borrar;
+
+  </script>
+</body>
+
+</html>

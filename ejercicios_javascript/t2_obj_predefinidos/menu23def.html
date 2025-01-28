@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Menú Semanal</title>
+      <style>
+            table {
+                  border-collapse: collapse;
+                  width: 100%;
+            }
+
+            th,
+            td {
+                  border: 1px solid black;
+                  padding: 8px;
+                  text-align: center;
+            }
+
+            th {
+                  background-color: lightgray;
+            }
+
+            .selected {
+                  background-color: lightblue;
+            }
+
+            .dragging {
+                  opacity: 0.7;
+            }
+      </style>
+</head>
+
+<body>
+      <h1>Menú Semanal</h1>
+      <input type="text" id="diaInput" placeholder="Introduce un día">
+      <input type="text" id="primerPlatoInput" placeholder="Introduce un primer plato">
+      <input type="text" id="segundoPlatoInput" placeholder="Introduce un segundo plato">
+      <input type="text" id="postreInput" placeholder="Introduce un postre">
+      <button id="btnAceptar" onclick="agregarDia()">Aceptar</button>
+      <br>
+      <div id="resultados"></div>
+      <div id="notificacion"></div>
+      <script>
+            const diaInput = document.querySelector("#diaInput");
+
+            const primerPlatoInput = document.querySelector("#primerPlatoInput");
+            const segundoPlatoInput = document.querySelector("#segundoPlatoInput");
+            const postreInput = document.querySelector("#postreInput");
+            const btnAceptar = document.querySelector("#btnAceptar");
+            const resul = document.querySelector("#resultados");
+            let selectedDia = null;
+
+            function limpiarCampos() {
+                  diaInput.value = "";
+                  primerPlatoInput.value = "";
+                  segundoPlatoInput.value = "";
+                  postreInput.value = "";
+                  selectedDia = null;
+            }
+
+            const menuSemanal = {};
+
+            const agregarDia = () => {
+                  const dia = diaInput.value;
+                  const primerPlato = primerPlatoInput.value;
+                  const segundoPlato = segundoPlatoInput.value;
+                  const postre = postreInput.value;
+
+                  if (Object.keys(menuSemanal).length < 5) {
+                        menuSemanal[dia] = {
+                              primerPlato,
+                              segundoPlato,
+                              postre
+                        };
+                        mostrarNotificacion("Día agregado al menú");
+                  } else {
+                        mostrarNotificacion("Ya no se pueden agregar más días al menú");
+                  }
+                  limpiarCampos();
+                  mostrarResultados();
+            };
+
+            const mostrarResultados = () => {
+                  const tabla = document.createElement("table");
+                  tabla.innerHTML = `<tr><th>Día</th><th>Primer Plato</th><th>Segundo Plato</th><th>Postre</th><th>Acciones</th></tr>`;
+                  let index = 1;
+                  for (const dia in menuSemanal) {
+                        const platos = menuSemanal[dia];
+                        const fila = document.createElement("tr");
+                        fila.setAttribute("draggable", "true");
+                        fila.setAttribute("ondragstart", "dragStart(event)");
+                        fila.setAttribute("ondragover", "allowDrop(event)");
+                        fila.setAttribute("ondrop", "drop(event)");
+                        if (dia === selectedDia) {
+                              fila.classList.add("selected");
+                        }
+                        fila.innerHTML = `<td class="dia">${dia}</td><td>${platos.primerPlato}</td><td>${platos.segundoPlato}</td><td>${platos.postre}</td><td><button onclick="editarDia('${dia}')">Editar</button> <button onclick="eliminarDia('${dia}')">Eliminar</button></td>`;
+
+                        tabla.appendChild(fila);
+                        index++;
+                  }
+                  resul.innerHTML = "";
+                  resul.appendChild(tabla);
+            };
+
+            const editarDia = (dia) => {
+                  const platos = menuSemanal[dia];
+                  primerPlatoInput.value = platos.primerPlato;
+                  segundoPlatoInput.value = platos.segundoPlato;
+                  postreInput.value = platos.postre;
+                  btnAceptar.innerText = "Actualizar";
+                  btnAceptar.onclick = () => actualizarPlatos(dia);
+            };
+
+            const actualizarPlatos = (dia) => {
+                  menuSemanal[dia].primerPlato = primerPlatoInput.value;
+                  menuSemanal[dia].segundoPlato = segundoPlatoInput.value;
+                  menuSemanal[dia].postre = postreInput.value;
+                  limpiarCampos();
+                  btnAceptar.innerText = "Aceptar";
+                  btnAceptar.onclick = agregarDia;
+                  mostrarResultados();
+            };
+
+            const eliminarDia = (dia) => {
+                  delete menuSemanal[dia];
+                  mostrarResultados();
+            };
+
+            const mostrarNotificacion = (mensaje) => {
+                  const notificacion = document.getElementById("notificacion");
+                  notificacion.innerText = mensaje;
+                  notificacion.style.display = "block";
+                  setTimeout(() => {
+                        notificacion.style.display = "none";
+                  }, 3000);
+            };
+
+            /*             function allowDrop(event) {
+                              event.preventDefault();
+                        }
+            
+                        function dragStart(event) {
+                              event.currentTarget.classList.add('dragging');
+                              event.dataTransfer.setData("text/plain", event.target.innerHTML);
+                        }
+            
+            
+                        function drop(event) {
+                              event.preventDefault();
+                              const draggedData = event.dataTransfer.getData('text/plain');
+                              const targetRow = event.currentTarget;
+                              const draggedRow = document.querySelector('.dragging');
+            
+                              targetRow.parentNode.insertBefore(draggedRow, targetRow);
+                              draggedRow.classList.remove('dragging');
+                              mostrarResultados();
+                        }
+             */
+
+      </script>
+</body>
+
+</html>

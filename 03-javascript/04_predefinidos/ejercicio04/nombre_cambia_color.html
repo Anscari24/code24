@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cambia color</title>
+  </head>
+  <body>
+    <script>
+      let body = document.body;
+      body.style.backgroundColor = "blue";
+      setTimeout(() => {
+        alert("El fondo va a cambiar a rojo");
+      }, 4000);
+      setTimeout(() => {
+        body.style.backgroundColor = "red";
+      }, 5000);
+      setTimeout(() => {
+        alert("El fondo va a cambiar a verde");
+      }, 10000);
+      setTimeout(() => {
+        body.style.backgroundColor = "green";
+      }, 11000);
+    </script>
+  </body>
+</html>

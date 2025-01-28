@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <div id="resultado"></div>
+  <body>
+    <script>
+      let lado1, lado2, base, div;
+      lado1 = prompt("Introduce el lado del triangulo");
+      lado2 = prompt("Introduce el otro lado del triangulo");
+      base = prompt("Introduce la base del triangulo");
+      div = document.getElementById("resultado");
+      lado1 = parseInt(lado1);
+      lado2 = parseInt(lado2);
+      base = parseInt(base);
+
+      var i = (lado1 + lado2 + base) / 2;
+
+      var area = Math.sqrt(i * ((i - lado1) * (i - lado2) * (i - base)));
+      div.innerHTML = "El area del triangulo es: " + area.toFixed(2) + "cm";
+    </script>
+  </body>
+</html>

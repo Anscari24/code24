@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generador tabla</title>
+  </head>
+  <body>
+    <form action="">
+      <label for="cols">
+        Columnas:
+        <input type="number" name="cols" id="cols" />
+      </label>
+      <label for="rows">
+        Filas:
+        <input type="number" name="rows" id="rows" />
+      </label>
+      <input type="button" value="Genera una tabla" onclick="generarTabla()" />
+      <input type="button" value="Borrar" onclick="borrarTabla()" />
+    </form>
+    <br />
+    <div id="contenedor"></div>
+
+    <script>
+      let contenedor = document.getElementById("contenedor");
+
+      function generarTabla() {
+        contenedor.innerHTML = "";
+
+        let rows = document.getElementById("rows");
+        let cols = document.getElementById("cols");
+
+        let tabla = document.createElement("table");
+        let tblBody = document.createElement("tbody");
+
+        for (var i = 0; i < rows.value; i++) {
+          let fila = document.createElement("tr");
+
+          for (var j = 0; j < cols.value; j++) {
+            let celda = document.createElement("td");
+            let textoCelda = document.createElement("input");
+            textoCelda.type = "text";
+            celda.appendChild(textoCelda);
+            fila.appendChild(celda);
+          }
+
+          tblBody.appendChild(fila);
+        }
+
+        tabla.appendChild(tblBody);
+
+        contenedor.appendChild(tabla);
+
+        tabla.setAttribute("border", "2");
+      }
+      function borrarTabla() {
+        contenedor.innerHTML = "";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Código de producto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+    integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <style type="text/css">
+    .container {
+      padding: 3rem;
+    }
+
+    #mostra {
+      background-color: yellowgreen;
+      padding: 1rem;
+      margin: 2rem;
+      display: none;
+    }
+
+    .btn-secondary {
+      background-color: yellow;
+    }
+
+    input[type=text] {
+      border: 1px solid black;
+    }
+  </style>
+  <!--  hacer código y luego listado -->
+
+</head>
+
+<body>
+  <div class="container">
+    <a id="genera" class="btn btn-primary" href="#">Muestra los códigos</a>
+    <a id="borra" class="btn btn-secondary" href="#">borra listado</a>
+
+    <div class="form-group">
+      <label for="numero">Introduce el número de etiquetas a imprimir</label>
+      <input type="text" class="form-control" id="numero" name="numero">
+    </div>
+    <div id="mostra"></div>
+  </div>
+  <script>
+    let result = "";
+    const codigos = document.querySelector("#numero");
+    const mostra = document.querySelector('#mostra');
+
+    const listar = () => {
+
+      let cd = codigos.value;
+      cd = Number(cd);
+      if (isNaN(cd) || cd == "") {
+        result = "Introduce una cantidad numérica";
+        mostra.innerHTML = result;
+        mostra.style.display = "block";
+        mostra.style.backgroundColor = "yellowgreen";
+
+      } else {
+        result = "";
+        for (let i = 1; i <= cd; i++) {
+          result += `Código del producto: Impresora HP201 ${i} <br/>`;
+        }
+        mostra.innerHTML = result;
+        mostra.style.display = "block";
+        mostra.style.backgroundColor = "yellowgreen";
+      }
+
+
+    }
+
+    const borrar = () => {
+      //   location.reload(true);
+      mostra.innerHTML = "";
+      mostra.style.display = "none";
+      codigos.value = "";
+
+    }
+    const genera = document.querySelector("#genera");
+    genera.onclick = listar;
+
+    const borra = document.querySelector('#borra');
+    borra.onclick = borrar;
+
+
+
+
+  </script>
+
+</body>
+
+</html>

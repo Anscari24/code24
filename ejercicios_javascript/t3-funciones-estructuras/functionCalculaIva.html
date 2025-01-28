@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>función Calcula IVA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+        integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <style type="text/css">
+        .container {
+            padding: 4rem;
+        }
+
+        #mostra {
+            background-color: yellowgreen;
+            padding: 1rem;
+            margin: 2rem;
+            display: none;
+        }
+
+        .btn-secondary {
+            background-color: yellow;
+        }
+
+        input[type=text] {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p>Introduce precio sin IVA<br />
+            <input type="text" name="precio" id="precio">
+        </p>
+        <p>Introduce un IVA a aplicar<br />
+            <input type="text" name="iva" id="iva">
+        </p>
+
+        <div id="calcula" class="btn btn-primary">Calcular precio con impuestos incluidos!!!</div>
+        <div id="borra" class="btn btn-secondary">Recarga!!!</div>
+
+        <div id="mostra"></div>
+    </div>
+
+
+
+    <script>
+        let result, res;
+        const sin = document.querySelector("#precio");
+        const iva = document.querySelector("#iva");
+
+        const mostra = document.querySelector('#mostra');
+
+        const calcula_iva = () => {
+            let s = sin.value;
+            let i = iva.value;
+            s = Number(s);
+            i = Number(i);
+            let ivadef = (i / 100) + 1;
+            if (isNaN(s) || isNaN(ivadef)) {
+                console.log(s + i + ivadef);
+                result = "Introduce valores con los que pueda operar";
+            } else {
+                let productConIva = s * ivadef;
+                result = `Precio sin impuestos del producto: ${s} €.<br/>IVA aplicable: ${ivadef}%.<br/>Producto con impuestos incluidos: ${productConIva.toFixed(2)} €.`;
+            }
+            console.log(result);
+            mostra.innerHTML = result;
+            mostra.style.display = "block";
+            mostra.style.backgroundColor = "yellowgreen";
+        }
+
+        const borrar = () => {
+            mostra.innerHTML = "";
+            mostra.style.display = "none";
+            sin.value = "";
+            iva.value = "";
+
+        }
+        const calcula = document.querySelector("#calcula");
+        calcula.onclick = calcula_iva;
+
+        const borra = document.querySelector('#borra');
+        borra.onclick = borrar;
+
+        /*     function toca(event) {
+              let keycode = event.keyCode;
+              if (keycode == 13) {
+                calcula_iva();
+              }
+            } */
+
+    </script>
+
+</body>
+
+</html>

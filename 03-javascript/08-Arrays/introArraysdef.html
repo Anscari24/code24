@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Introducción a Arrays</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <script>
+        //primera representación de un array, dos formatos
+        /*    let primerArray = new Array(6);
+           primerArray[0] = 100;
+           primerArray[1] = 300;
+           primerArray[2] = 500;
+           primerArray[5] = 600; */
+
+        let primerArray = [100, 300, 500, , , 600];
+
+        //segunda presentación, no nombramos la cantidad de elementos y mezclamos tipo de dato
+        /*   let segundoArray = ["precio", 300, 500, 600]; */
+        let segundoArray = new Array();
+        segundoArray[0] = "precio";
+        segundoArray[1] = 300;
+        segundoArray[2] = 500;
+        segundoArray[5] = 600;
+
+        //tercera presentación, directa asignación en los índices
+        /*    let tercerArray = new Array("primero", "segundo", 0, 25, "cuarenta"); */
+        //actual presentación
+        let tercerArray = ["Uno", "segundo", 90, 15, , , "cincuenta"];
+
+        //Recorrer un array unidimensional con índices numéricos, bulce de javascript
+        function recorroArray() {
+            let recorro = [10, "20", true, "texto", 50, 60];
+            //bucle for, o while, o do while, óptimos para arrays, itera por índice numérico.
+            console.time('for');
+            for (let i = 0; i < recorro.length; i++) {
+                console.log("Indice:" + i + "Valor:" + recorro[i]);
+                document.write("Índice: " + [i] + "  Valor: " + recorro[i] + "<br>");
+            }
+            console.timeEnd('for');
+            //for in, recorre arrays, propiedades de objetos y objetos, itera sobre los índices y nombres de propiedades
+            console.time('forin');
+            document.write("For in <br>");
+            for (let x in recorro) {
+                console.log("Indice" + x + " Valor:" + recorro[x]);
+                document.write("Indice: " + [x] + "  Valor: " + recorro[x] + "<br>");
+            }
+            console.timeEnd('forin');
+            //for of arrays, no objetos por índice numérico pero sólo por los valores
+            console.time('forof');
+            document.write("For of <br>");
+            for (let y of recorro) { //solo devuelve el valor
+                console.log("Indice: " + y + "  Valor:" + y);
+                document.write("Indice: " + y + "  Valor: " + y + "<br>");
+            }
+            console.timeEnd('forof');
+            document.write("For each<br>");
+            //foreach itera por arrays, accede sólamente a los valores y  permite llamar funciones a ejecutar
+            console.time('forEach');
+            recorro.forEach((element) => { document.write("Indice: " + element + "  Valor: " + element + "<br>"); console.log(element); });
+            console.timeEnd('forEach');
+        };
+        //arrays asociativos - array o objeto json??
+        let nombre = "Alf", consigna = "Zumo de gato", tercerindice = "otrovalorvalor";
+        let associativo1 = [
+            nombre = "Alf",
+            consigna = "Zumo de gato",
+            tercerindice = "otrovalorvalor"
+        ];
+
+        //recorrer un array asociativo escrito con notación JSON (Relativamente cierto)
+        function recorrerAssoc() {
+            let asso3 = {
+                nombre: "Pedro",
+                "apellido": "Gomez",
+                "edad": 25,
+                "boleano": true,
+                array: [1, 2, 2, "tres"]
+            };
+            for (let x in asso3) {
+                console.log("posición;" + x + " Valor:" + asso3[x]);
+                document.write("Índice: " + [x] + "  Valor: " + asso3[x] + "<br>");
+            }
+        }
+        //Recorrer un array mixto 
+        let mixto = [10, 20, 30, 40, 50];
+        mixto["nombre"] = "Pedro";
+        mixto["apellido"] = "Perolillos";
+        mixto["edad"] = 25;
+
+        function recorroAsociativo() {
+            for (let x in mixto) {
+                console.log("posicion;" + x + "valor:" + mixto[x]);
+                document.write("Índice: " + x + "  Valor: " + mixto[x] + "<br>");
+            }
+        }
+
+
+
+        //arrays multidimendionales
+        let multiArray1 = new Array();
+        multiArray1[0] = ["wa"];
+        multiArray1[0][1] = 300;
+        multiArray1[1] = new Array();
+        multiArray1[1][0] = "posicion 1-0";
+        multiArray1[1][1] = "posicion 1-1";
+        multiArray1[1][2] = "posicion 1-2";
+        multiArray1[2] = "wep";
+
+        //PRESENTACIONES 
+
+        // alert(primerArray);
+        console.log(primerArray);
+        document.write(primerArray + "<br>");
+
+
+        console.log(segundoArray);
+        document.write(segundoArray + "<br>");
+
+
+        console.log(tercerArray);
+        document.write(tercerArray + "<br>");
+
+
+        console.log(associativo1);
+        document.write(associativo1 + "<br>");
+
+        document.write(multiArray1 + "<br>");
+
+
+    </script>
+    <hr>
+    <div onclick="recorroArray();">Muestra el array recorrido</div>
+    <div onclick="recorrerAssoc();">Muestra el recorrido del array asociativo</div>
+    <div onclick="recorroAsociativo();">Muestra el recorrido del array mixto</div>
+</body>
+
+</html>

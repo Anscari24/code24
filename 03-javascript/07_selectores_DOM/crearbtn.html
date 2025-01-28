@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos predeterminados</title>
+</head>
+
+<body>
+    <button id="crear">Crea botones</button>
+    <div id="botones"></div>
+    <script>
+        const crear = document.querySelector('#crear');
+        const btnr = document.querySelector('#botones');
+
+        const crearbotones = () => {
+            for (i = 0; i < 101; i++) {
+                let boton =
+                    `<input type='button' value=' ${i} '>`;
+                btnr.innerHTML += boton;
+                if (i % 10 == 0) btnr.innerHTML += "<br />";
+            }
+
+        }
+        crear.onclick = crearbotones;
+    </script>
+
+</body>
+
+</html>

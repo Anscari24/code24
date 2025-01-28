@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="formulario"></div>
+    <div id="resultado"></div>
+    <script>
+      let formulario = document.getElementById("formulario");
+      let resultado = document.getElementById("resultado");
+      const selector = `<form action="">
+          <label for="base">
+        Introduzca la base:
+        <input type="number" name="base" id="base" />
+      </label>
+      <br />
+      <label for="altura">
+        Introduzca altura:
+        <input type="number" name="altura" id="altura" />
+      </label>
+      <br />
+        <button type="button" id="btn-calcula" onclick='calculaArea()'>Calcula</button>
+        <button type="button" id="btn-borra" onclick='borraDatos()'>Borrar</button>
+      </form>`;
+      function calculaArea() {
+        let base = document.getElementById("base");
+        base = base.value;
+        let altura = document.getElementById("altura");
+        altura = altura.value;
+        let area = (base * altura) / 2;
+        resultado.innerHTML =
+          "El area del triangulo es: " + area.toFixed(2) + "cm";
+      }
+      function borraDatos() {
+        let base = document.getElementById("base");
+        base.value = "";
+        let altura = document.getElementById("altura");
+        altura.value = "";
+        resultado.innerHTML = "";
+      }
+      formulario.innerHTML = selector;
+    </script>
+  </body>
+</html>

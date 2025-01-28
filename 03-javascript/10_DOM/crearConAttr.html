@@ -1,66 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="../02_uso_frameworks/w3css/source/css/w3css.css"
+    />
+    <title>Crear elementos con el DOM</title>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
+  <body>
+    <main class="w3-container">
+      <h2>Crear elementos con el DOM</h2>
+      <p>Posición:</p>
+      <input type="number" id="posicion" />
+      <p>Texto a incluir:</p>
+      <input type="text" id="valor" />
 
-<body>
-
-    <p>posicion: </p>
-    <input type="number" id="posicion">
-    <p>texto: </p>
-    <input type="text" id="valor">
-    <input id="crear" type="button" value="Crear">
-    <div id="contenedorPadre">
-
-    </div>
+      <input id="crear" type="button" value="Crear" />
+      <div id="contenedorPadre"></div>
+    </main>
     <script>
-        const posicion = document.querySelector("#posicion");
-        const texto = document.querySelector("#valor");
-        const padre = document.querySelector("#contenedorPadre");
-        const creaParrafos = () => {
-            let pos = posicion.value;
-            let text = texto.value;
-            /*   let padre = document.querySelector("#contenedorPadre"); */
-            let hijos = padre.children.length;
+      const posicion = document.querySelector("#posicion");
+      const texto = document.querySelector("#valor");
+      const padre = document.querySelector("#contenedorPadre");
 
-            let elementoNodo = document.createElement("p");
-            let nodoTexto = document.createTextNode(text);
-            let id = hijos + 1;
-            elementoNodo.appendChild(nodoTexto);
-            elementoNodo.setAttribute("id", id);
+      const creaParrafos = () => {
+        let pos = posicion.value;
+        let text = texto.value;
+        let hijos = padre.children.length;
 
-            if (hijos === 0 && text !== "") {
-                padre.appendChild(elementoNodo);
-            } else if (text === "") {
-                alert("introduce un texto.");
-                document.querySelector("#valor").focus();
-            }
-            else {
-                if (pos) {
-                    if (pos <= hijos) {
-                        for (i = 0; i < hijos; i++) {
-                            if (i === pos + 1) {
-                                let actual = document.querySelector(padre.children[i]);
-                                padre.insertBefore(elementoNodo, actual);
-                            }
-                        }
+        let elementoNodo = document.createElement("p");
+        let nodoTexto = document.createTextNode(text);
+        let id = hijos + 1;
+        elementoNodo.appendChild(nodoTexto);
+        elementoNodo.setAttribute("id", id);
 
-                    } else if (parseInt(parseInt(pos) - hijos) <= 1) {
-                        padre.appendChild(elementoNodo);
-                    }
-                } else {
-                    alert("introduce la posición.")
-                    document.querySelector("#posicion").focus();
+        if (hijos === 0 && text !== "") {
+          padre.appendChild(elementoNodo);
+        } else if (text === "") {
+          alert("introduce un texto.");
+          texto.focus();
+        } else {
+          if (pos) {
+            if (pos <= hijos) {
+              for (i = 0; i < hijos; i++) {
+                if (i === pos + 1) {
+                  let actual = document.querySelector(padre.children[i]);
+                  padre.insertBefore(elementoNodo, actual);
                 }
+              }
+            } else if (parseInt(parseInt(pos) - hijos) <= 1) {
+              padre.appendChild(elementoNodo);
             }
+          } else {
+            alert("introduce la posición.");
+            posicion.focus();
+          }
         }
-        let crear = document.querySelector("#crear");
-        crear.addEventListener("click", creaParrafos);
+      };
+      const crear = document.querySelector("#crear");
+      crear.addEventListener("click", creaParrafos);
     </script>
-
-</body>
-
+  </body>
 </html>
